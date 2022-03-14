@@ -1,34 +1,99 @@
-version: "3.0"
-
-intents:
-  - greet
-  - goodbye
-  - affirm
-  - deny
-  - mood_great
-  - mood_unhappy
-  - bot_challenge
-
-responses:
-  utter_greet:
-  - text: "Hey! How are you?"
-
-  utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
-
-  utter_did_that_help:
-  - text: "Did that help you?"
-
-  utter_happy:
-  - text: "Great, carry on!"
-
-  utter_goodbye:
-  - text: "Bye"
-
-  utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
-
+version: '2.0'
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
+intents:
+- ask_which_events
+- why_rasa
+- install_rasa
+- human_handoff
+- technical_question
+- broken
+- signup_newsletter
+- ask_how_contribute
+- ask_question_in_forum
+- contact_sales
+- pipeline_recommendation
+- switch
+- restart
+- book_demo
+- how_to_get_started
+- source_code
+- nlu_generation_tool_recommendation
+- ask_why_contribute
+- nlu_info
+- enter_data
+- need_help_broad
+- affirm
+- explain
+- deny
+- canthelp
+- chitchat
+- faq
+- out_of_scope
+- thank
+- bye
+- feedback
+- greet
+- react_positive
+- react_negative
+- trigger_response_selector
+entities:
+- name
+- location
+- entity
+- nlu_part
+- product
+- language
+- install_type
+- job_function
+- company
+- user_type
+- current_api
+- email
+- retrieval_intent
+slots:
+  current_api:
+    type: unfeaturized
+    influence_conversation: false
+  onboarding:
+    type: unfeaturized
+    influence_conversation: false
+  product:
+    type: unfeaturized
+    influence_conversation: false
+  language:
+    type: unfeaturized
+    influence_conversation: false
+  can_use_spacy:
+    type: unfeaturized
+    influence_conversation: false
+  entity_extractor:
+    type: unfeaturized
+    influence_conversation: false
+  docs_found:
+    type: unfeaturized
+    influence_conversation: false
+responses:
+  utter_greeting:
+  - text: hello
+actions:
+- action_set_onboarding
+- playground_form
+- action_store_problem_description
+- subscribe_newsletter_form
+- action_submit_subscribe_newsletter_form
+- action_set_faq_slot
+- sales_form
+- action_submit_sales_form
+- action_explain_sales_form
+- action_greet_user
+- action_tag_feedback
+- action_docs_search
+- action_explain_faq
+- action_trigger_response_selector
+- action_store_unknown_nlu_part
+- action_store_bot_language
+- action_store_entity_extractor
+- action_tag_docs_search
+- action_forum_search
